@@ -1,5 +1,6 @@
 # color-lighten-tool
 
+Output = Input color + opacity + white background
 
 
 Language : English | [中文](./README.zh-CN.md)
