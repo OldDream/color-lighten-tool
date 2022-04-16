@@ -2,30 +2,36 @@
 <html lang="en">
 
 <head>
-  <title>ultralightCopy - demo</title>
+  <title>colorLightenTool - demo</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .buttonDiv {
+    .wrapper {
       white-space:pre-wrap;
+    }
+    .colorWrapper div {
+      height: 32px;
     }
   </style>
   <script src="./dist/index.js"></script>
 </head>
 
 <body>
-  <div class="buttonDiv">
-    <button id="test">Click me to copy!</button>
+  <div class="wrapper">
+    <div class="colorWrapper">
+      <span>input: rgb(255,000,000)</span>
+      <div style="background-color: rgb(255,0,0)"></div>
+    </div>
+    <div class="colorWrapper">
+      <span id="outPut"></span>
+      <div id="outPutColor"></div>
+    </div>
   </div>
 
   <script>
-    document.querySelector('#test').addEventListener('click', () => {
-      if (ultralightCopy('This is test string.')) {
-        alert('success !')
-      } else {
-        alert('copy failed!')
-      }
-    })
+    const outColor = colorLightenTool('rgb(255,0,0)', 0.5)
+    document.querySelector('#outPut').innerHTML = 'output:' + outColor
+    document.querySelector('#outPutColor').style.backgroundColor = outColor
   </script>
 </body>
 

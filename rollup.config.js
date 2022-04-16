@@ -16,7 +16,7 @@ const config = [
     output: {
       file: resolve('./', pkg.main), // 读取 package.json 中的main作为入口。
       format: 'umd',
-      name: 'ultralightCopy', // umd 包要求提供，不存在模块系统的情况下，使用这个名字暴露到全局变量中， global.ultralightCopy
+      name: 'colorLightenTool', // umd 包要求提供，不存在模块系统的情况下，使用这个名字暴露到全局变量中
     },
     plugins: [
       nodeResolve({

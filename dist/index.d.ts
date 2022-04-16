@@ -1,3 +1,9 @@
-declare function ultralightCopy(sourceStr?: string): boolean;
+/**
+ *
+ * @param inputColor
+ * @param opacity
+ * @returns RGBcolor
+ */
+declare function colorLightenTool(inputColor?: string, opacity?: number): string;
 
-export default ultralightCopy;
+export { colorLightenTool as default };
