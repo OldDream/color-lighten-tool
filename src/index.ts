@@ -25,7 +25,6 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1): string 
     console.log('isRGB')
     const matchColors = /rgb\((\d{1,3}),(\d{1,3}),(\d{1,3})\)/;
     const match = matchColors.exec(inputColor);
-    console.log('match',match)
     if (match !== null) {
       inputColorObj.r = Number(match[1])
       inputColorObj.g = Number(match[2])
@@ -33,7 +32,6 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1): string 
     }
   } else {
     // inputColor is HEX
-    console.log('isHEX')
     const match = hexToRgb(inputColor)
     if (match !== null) {
       inputColorObj.r = match[0]
@@ -44,13 +42,11 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1): string 
     }
   }
   const bgCol = { r: 255, g: 255, b: 255 };
-  console.log('inputColorObj:',inputColorObj)
   const flattenedColor = {
     r: opacity * inputColorObj.r + (1 - opacity) * bgCol.r,
     g: opacity * inputColorObj.g + (1 - opacity) * bgCol.g,
     b: opacity * inputColorObj.b + (1 - opacity) * bgCol.b,
   };
-  console.log('flattenedColor:',flattenedColor)
   return `rgb(${flattenedColor.r},${flattenedColor.g},${flattenedColor.b})`
 }
 
