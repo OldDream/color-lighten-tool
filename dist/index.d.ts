@@ -1,9 +1,15 @@
+declare type RBGColor = {
+    r: number;
+    g: number;
+    b: number;
+};
 /**
- *
- * @param inputColor
- * @param opacity
- * @returns RGBcolor
+ * input color * opacity + white background = output
+ * @param inputColor a HEX or RGB color string
+ * @param opacity from 1 to 0, default 1
+ * @param bgCol background color, default #fff, white
+ * @returns RGB color string
  */
-declare function colorLightenTool(inputColor?: string, opacity?: number): string;
+declare function colorLightenTool(inputColor?: string, opacity?: number, bgCol?: RBGColor): string;
 
 export { colorLightenTool as default };
