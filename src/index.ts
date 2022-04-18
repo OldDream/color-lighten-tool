@@ -1,3 +1,9 @@
+type  RBGColor = {
+  r: number,
+  g: number,
+  b: number,
+}
+
 function hexToRgb(hex: string) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? [
@@ -8,12 +14,13 @@ function hexToRgb(hex: string) {
 }
 
 /**
- * 
- * @param inputColor 
- * @param opacity 
- * @returns RGBcolor
+ * input color * opacity + white background = output
+ * @param inputColor a HEX or RGB color string
+ * @param opacity from 1 to 0, default 1
+ * @param bgCol background color, default #fff, white
+ * @returns RGB color string
  */
-function colorLightenTool(inputColor: string = "", opacity: number = 1): string {
+function colorLightenTool(inputColor: string = "", opacity: number = 1, bgCol:RBGColor = { r: 255, g: 255, b: 255 }): string {
   // check color code type HEX or RGB
   const inputColorObj = {
     r: 0,
@@ -32,7 +39,12 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1): string 
     }
   } else {
     // inputColor is HEX
-    const match = hexToRgb(inputColor)
+    let inputColor2 = inputColor
+    if (inputColor.length === 4) {
+      // handle short like #fff => #ffffff
+      inputColor2 = inputColor + inputColor.substring(1)
+    } 
+    const match = hexToRgb(inputColor2)
     if (match !== null) {
       inputColorObj.r = match[0]
       inputColorObj.g = match[1]
@@ -41,7 +53,6 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1): string 
       return ''
     }
   }
-  const bgCol = { r: 255, g: 255, b: 255 };
   const flattenedColor = {
     r: opacity * inputColorObj.r + (1 - opacity) * bgCol.r,
     g: opacity * inputColorObj.g + (1 - opacity) * bgCol.g,
