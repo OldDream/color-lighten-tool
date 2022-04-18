@@ -6,8 +6,12 @@ test('Input rgb rgb(255,0,0) + 0.4 opacity', () => {
   expect(colorLightenTool('rgb(255,0,0)', 0.4)).toBe('rgb(255,153,153)')
 });
 
-
 test('Input HEX #FF0000 + 0.4 opacity', () => {
   colorLightenTool()
   expect(colorLightenTool('#FF0000', 0.4)).toBe('rgb(255,153,153)')
+});
+
+test('Input HEX #F00 + 0.4 opacity', () => {
+  colorLightenTool()
+  expect(colorLightenTool('#F00', 0.4)).toBe('rgb(255,153,153)')
 });
