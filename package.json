@@ -1,6 +1,6 @@
 {
   "name": "color-lighten-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make color lighten, like add opacity and white background.",
   "repository": {
     "type": "git",
