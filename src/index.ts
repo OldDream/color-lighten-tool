@@ -15,7 +15,7 @@ function hexToRgb(hex: string) {
 
 /**
  * input color * opacity + white background = output
- * @param inputColor a HEX or RGB color string
+ * @param inputColor a HEX (6 characters) or RGB color string
  * @param opacity from 1 to 0, default 1
  * @param bgCol background color, default #fff, white
  * @returns RGB color string
@@ -42,7 +42,8 @@ function colorLightenTool(inputColor: string = "", opacity: number = 1, bgCol:RB
     let inputColor2 = inputColor
     if (inputColor.length === 4) {
       // handle short like #fff => #ffffff
-      inputColor2 = inputColor + inputColor.substring(1)
+      const array = inputColor.substring(1).split('')
+      inputColor2 = '#' + array[0] + array[0] + array[1] + array[1] + array[2] + array[2]
     } 
     const match = hexToRgb(inputColor2)
     if (match !== null) {
