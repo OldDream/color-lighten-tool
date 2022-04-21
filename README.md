@@ -1,6 +1,6 @@
 # color-lighten-tool
 
-Output = Input color + opacity + white background
+Output = Input color * opacity + white background
 
 
 Language : English | [中文](./README.zh-CN.md)
@@ -17,7 +17,7 @@ npm i color-lighten-tool
 
 ### API
 
-`function colorLightenTool(color: string, opacity: number[, bgColor: {r, g, b}]): string`
+`function colorLightenTool(color: string, opacity: number): string`
 
 ```js
 import colorLightenTool from 'color-lighten-tool'
@@ -25,6 +25,14 @@ import colorLightenTool from 'color-lighten-tool'
 const outPutColor = colorLightenTool('rgb(255,0,0)', 0.4) // rgb(255,153,153)
 const outPutColor = colorLightenTool('#FF0000', 0.4) // rgb(255,153,153)
 ```
+
+
+
+For advanced users, you can pass a color to replace white background. 
+
+`function colorLightenTool(color: string, opacity: number[, bgColor: {r: number, g: number, b: number}]): string`
+
+Output = Input color * opacity + custom background color
 
 
 
